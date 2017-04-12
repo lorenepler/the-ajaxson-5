@@ -31,10 +31,13 @@ function fetchAndDisplayGif(event) {
     //var riddleInt = parseInt(riddleStr);
     if ($("#riddleText").val() != 5) {
         $("#riddleErrorText").text("No gifs for you.");
+        $("#errorErrorGroup").addClass("has-error");
     }
     else {
     // make an ajax request for a random GIF
         $("#riddleErrorText").text("");
+        $("#errorErrorGroup").removeClass("has-error");
+
         $.ajax({
             url: "https://api.giphy.com/v1/gifs/random", // TODO where should this request be sent?
             data: params, // attach those extra parameters onto the request
